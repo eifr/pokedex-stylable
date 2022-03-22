@@ -1,6 +1,11 @@
 @st-import Header from './header.st.css';
 
-.root {}
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
 .header {
     -st-extends: Header;
@@ -14,5 +19,5 @@
 }
 
 .header::anchor {
-    text-decoration-color: green;
+    text-decoration-color: pink;
 }
