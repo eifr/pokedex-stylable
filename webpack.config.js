@@ -21,7 +21,11 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.json'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css', '*', '0'],
+        fallback: {
+            path: require.resolve('@file-services/path'),
+            url: require.resolve('url'),
+        },
     },
     plugins: [new StylableWebpackPlugin(), new HtmlWebpackPlugin({ title: 'Stylable App' })],
     cache: { type: 'filesystem' },

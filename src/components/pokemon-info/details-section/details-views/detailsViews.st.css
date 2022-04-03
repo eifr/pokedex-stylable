@@ -1,0 +1,82 @@
+.root {
+    /* background-color: var(--typeColor); */
+}
+
+
+.pokemonImage {
+    width: 150px;
+}
+
+.pokemonData {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 140px;
+}
+
+.keyVal {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+.keyVal div:first-child {
+    font-weight: 700;
+}
+
+.pokemonTypes {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.typeCapsule {
+    background-color: black;
+    height: 24px;
+    width: 100px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    margin: 5px;
+    color: var(--typeColor);
+    border: 2px solid var(--typeColor);
+}
+
+.statsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.stats {
+    display: flex;
+    font-size: 12px;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 100%;
+    text-align: center;
+}
+
+.stats .stat {
+    width: 70px;
+}
+
+.stats .text {
+    margin-top: 10px;
+    height: 35px;
+    font-weight: 700a;
+}
+
+.stats .poll {
+    width: 15px;
+    border-radius: 4px;
+    margin: 0 auto;
+    height: var(--valueHeight);
+    background-color: var(--typeColor);
+    border: 1px solid black;
+
+}

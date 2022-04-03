@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8080/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Stylable App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><script defer="" src="./Stylable App_files/main.js"></script><style st_id="./src/globals.st.css" st_depth="1" st_runtime="0">*,::before,::after {
+  box-sizing: border-box;
+}
+
+html,body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+
+  font-family:
+    system-ui,
+    /* macOS 10.11-10.12 */
+    -apple-system,
+    /* Windows 6+ */
+    "Segoe UI",
+    /* Android 4+ */
+    "Roboto",
+    /* Ubuntu 10.10+ */
+    "Ubuntu",
+    /* Gnome 3+ */
+    "Cantarell",
+    /* KDE Plasma 5+ */
+    "Noto Sans",
+    /* fallback */
+    sans-serif,
+    /* macOS emoji */
+    "Apple Color Emoji",
+    /* Windows emoji */
+    "Segoe UI Emoji",
+    /* Windows emoji */
+    "Segoe UI Symbol",
+    /* Linux emoji */
+    "Noto Color Emoji";
+}
+
+a,a:visited {
+  color: inherit;
+  cursor: pointer;
+}
+</style><style st_id="./src/components/pokedex/pokedexContainer.st.css" st_depth="1" st_runtime="0">.pokedexContainer1761891732__root {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 4px;
+    max-width: min(1040px, 100%);
+    min-width: 600;
+    height: 75vh;
+}
+
+.pokedexContainer1761891732__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    width: 500px;
+    border: 5px solid #CE2211;
+    background-color: #E54222;
+}
+
+.pokedexContainer1761891732__container:first-of-type {
+    border-right: 2px solid #CE2211;
+}
+</style><style st_id="./src/components/PokemonInfo/buttons-section/buttonsSection.st.css" st_depth="1" st_runtime="0">.buttonsSection3084687008__root {
+    padding: 10px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.buttonsSection3084687008__arrowBtn {
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    margin: 10px;
+}
+</style><style st_id="./src/components/PokemonInfo/detailsSection/detailsSection.st.css" st_depth="1" st_runtime="0">.detailsSection2383910069__root {
+    border: 15px solid #DFDFDF;
+    padding: 10px;
+    height: 300px;
+    border-radius: 4px;
+    background-color: var(--detailsSection2383910069-typeColor);
+    color: white;
+    text-transform: capitalize;
+}
+
+.detailsSection2383910069__details {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(250, 250, 250, .2);
+    height: 100%;
+}
+</style><style st_id="./src/components/PokemonInfo/info.st.css" st_depth="1" st_runtime="0">.info3021986579__root {
+    width: 100%;
+    margin-top: 85px;
+}
+</style><style st_id="./src/components/PokemonInfo/detailsSection/details-views/detailsViews.st.css" st_depth="1" st_runtime="0">.detailsViews435337421__root {
+    background-color: var(--detailsViews435337421-typeColor);
+}
+
+
+.detailsViews435337421__pokemonImage {
+    width: 150px;
+}
+
+.detailsViews435337421__pokemonData {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 140px;
+}
+
+.detailsViews435337421__keyVal {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+.detailsViews435337421__keyVal:first-child {
+    font-weight: 700;
+}
+
+.detailsViews435337421__pokemonTypes {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.detailsViews435337421__typeCapsule {
+    background-color: black;
+    height: 24px;
+    width: 100px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    margin: 5px;
+    color: var(--detailsViews435337421-typeColor);
+    border: 2px solid var(--detailsViews435337421-typeColor);
+}
+
+.detailsViews435337421__statsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.detailsViews435337421__stats {
+    display: flex;
+    font-size: 12px;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 100%;
+    text-align: center;
+}
+
+.detailsViews435337421__stats .detailsViews435337421__stat {
+    width: 70px;
+}
+
+.detailsViews435337421__stats .detailsViews435337421__text {
+    margin-top: 10px;
+    height: 35px;
+    font-weight: 700a;
+}
+
+.detailsViews435337421__stats .detailsViews435337421__poll {
+    width: 10px;
+    border-radius: 4px;
+    margin: 0 auto;
+    height: var(--detailsViews435337421-valueHeight);
+    /* background-color: black; */
+    border: 1px solid black;
+
+}
+</style><style st_id="./src/components/card-list/card-list.st.css" st_depth="1" st_runtime="0">.cardlist3016108430__root {
+    margin-top: 20px;
+    height: 60vh;
+    overflow: auto;
+    width: 400px
+}
+
+.cardlist3016108430__listContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1;
+}
+
+.cardlist3016108430__loadMoreBtn {
+    margin: 0px auto;
+    display: block;
+    width: 100%;
+
+}
+</style><style st_id="./src/components/search-input/search.st.css" st_depth="1" st_runtime="0">.search1429754689__root {
+    margin-top: 20px;
+    height: 60vh;
+    overflow: auto;
+    width: 400px;
+}
+</style><style st_id="./src/components/tabs/tabs.st.css" st_depth="1" st_runtime="0">.tabs232225717__root {}
+
+.tabs232225717__tabBtn {
+    width: 120px;
+    text-align: left;
+    border: none;
+    background: #E54222;
+    color: white;
+    font-size: large;
+    margin-right: 10px;
+    border-radius: 4px;
+    border-right: 2px solid #DFDFDF;
+    border-bottom: 2px solid #DFDFDF;
+
+}
+</style><style st_id="./src/components/card-list/card.st.css" st_depth="2" st_runtime="0">.card2885888532__root {
+    --card2885888532-background-color: white;
+    cursor: pointer;
+    width: 115px;
+    height: 140px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 2px solid white;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.card2885888532__root.card2885888532---type-6-normal {
+    background-color: #A8A77A;
+}
+
+.card2885888532__root.card2885888532---type-4-fire {
+    background-color: rgba(238, 129, 48, 0.5);
+}
+
+.card2885888532__root.card2885888532---type-5-water {
+    background-color: #6390F0;
+}
+
+.card2885888532__root.card2885888532---type-8-electric {
+    background-color: #F7D02C;
+}
+
+.card2885888532__root.card2885888532---type-5-grass {
+    background-color: #7AC74C;
+}
+
+.card2885888532__root.card2885888532---type-3-ice {
+    background-color: #96D9D6;
+}
+
+.card2885888532__root.card2885888532---type-8-fighting {
+    background-color: #C22E28;
+}
+
+.card2885888532__root.card2885888532---type-6-poison {
+    background-color: #A33EA1;
+}
+
+.card2885888532__root.card2885888532---type-6-ground {
+    background-color: #E2BF65;
+}
+
+.card2885888532__root.card2885888532---type-6-flying {
+    background-color: #A98FF3;
+}
+
+.card2885888532__root.card2885888532---type-7-psychic {
+    background-color: #F95587;
+}
+
+.card2885888532__root.card2885888532---type-3-bug {
+    background-color: #A6B91A;
+}
+
+.card2885888532__root.card2885888532---type-4-rock {
+    background-color: #B6A136;
+}
+
+.card2885888532__root.card2885888532---type-5-ghost {
+    background-color: #735797;
+}
+
+.card2885888532__root.card2885888532---type-4-dark {
+    background-color: #705746;
+}
+
+.card2885888532__root.card2885888532---type-5-fairy {
+    background-color: #D685AD;
+}
+
+.card2885888532__root.card2885888532---type-5-steel {
+    background-color: #B7B7CE;
+}
+</style><style st_id="./src/app.st.css" st_depth="3" st_runtime="0">.app1423146639__root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+</style></head>
+  <body>
+  
+<div><main class="app1423146639__root"><div class="pokedexContainer1761891732__root"><div class="pokedexContainer1761891732__container"><div><div><button class="tabs232225717__tabBtn">Browse</button><button class="tabs232225717__tabBtn">Search</button></div><div><div class="cardlist3016108430__root"><div class="cardlist3016108430__listContainer"><div class="card2885888532__root card2885888532---type-5-grass"><img src="./Stylable App_files/1.png" alt="bulbasaur"><div>bulbasaur</div></div><div class="card2885888532__root card2885888532---type-5-grass"><img src="./Stylable App_files/2.png" alt="ivysaur"><div>ivysaur</div></div><div class="card2885888532__root card2885888532---type-5-grass"><img src="./Stylable App_files/3.png" alt="venusaur"><div>venusaur</div></div><div class="card2885888532__root card2885888532---type-4-fire"><img src="./Stylable App_files/4.png" alt="charmander"><div>charmander</div></div><div class="card2885888532__root card2885888532---type-4-fire"><img src="./Stylable App_files/5.png" alt="charmeleon"><div>charmeleon</div></div><div class="card2885888532__root card2885888532---type-4-fire"><img src="./Stylable App_files/6.png" alt="charizard"><div>charizard</div></div><div class="card2885888532__root card2885888532---type-5-water"><img src="./Stylable App_files/7.png" alt="squirtle"><div>squirtle</div></div><div class="card2885888532__root card2885888532---type-5-water"><img src="./Stylable App_files/8.png" alt="wartortle"><div>wartortle</div></div><div class="card2885888532__root card2885888532---type-5-water"><img src="./Stylable App_files/9.png" alt="blastoise"><div>blastoise</div></div><div class="card2885888532__root card2885888532---type-3-bug"><img src="./Stylable App_files/10.png" alt="caterpie"><div>caterpie</div></div><div class="card2885888532__root card2885888532---type-3-bug"><img src="./Stylable App_files/11.png" alt="metapod"><div>metapod</div></div><div class="card2885888532__root card2885888532---type-3-bug"><img src="./Stylable App_files/12.png" alt="butterfree"><div>butterfree</div></div><div class="card2885888532__root card2885888532---type-3-bug"><img src="./Stylable App_files/13.png" alt="weedle"><div>weedle</div></div><div class="card2885888532__root card2885888532---type-3-bug"><img src="./Stylable App_files/14.png" alt="kakuna"><div>kakuna</div></div><div class="card2885888532__root card2885888532---type-3-bug"><img src="./Stylable App_files/15.png" alt="beedrill"><div>beedrill</div></div><div class="card2885888532__root card2885888532---type-6-normal"><img src="./Stylable App_files/16.png" alt="pidgey"><div>pidgey</div></div><div class="card2885888532__root card2885888532---type-6-normal"><img src="./Stylable App_files/17.png" alt="pidgeotto"><div>pidgeotto</div></div><div class="card2885888532__root card2885888532---type-6-normal"><img src="./Stylable App_files/18.png" alt="pidgeot"><div>pidgeot</div></div><div class="card2885888532__root card2885888532---type-6-normal"><img src="./Stylable App_files/19.png" alt="rattata"><div>rattata</div></div><div class="card2885888532__root card2885888532---type-6-normal"><img src="./Stylable App_files/20.png" alt="raticate"><div>raticate</div></div></div><button class="cardlist3016108430__loadMoreBtn">Load More</button></div></div></div></div><div class="pokedexContainer1761891732__container"><div class="info3021986579__root"><div class="detailsSection2383910069__root" style="--detailsSection2383910069-typeColor:#EE8130;"><div style="" class="detailsSection2383910069__details"><div class="detailsViews435337421__statsContainer"><div>charizard stats</div><div class="detailsViews435337421__stats"><div class="detailsViews435337421__stat" title="78"><div class="detailsViews435337421__poll" style="--detailsViews435337421-valueHeight:78px;"></div><div class="detailsViews435337421__text">hp</div></div><div class="detailsViews435337421__stat" title="84"><div class="detailsViews435337421__poll" style="--detailsViews435337421-valueHeight:84px;"></div><div class="detailsViews435337421__text">attack</div></div><div class="detailsViews435337421__stat" title="78"><div class="detailsViews435337421__poll" style="--detailsViews435337421-valueHeight:78px;"></div><div class="detailsViews435337421__text">defense</div></div><div class="detailsViews435337421__stat" title="109"><div class="detailsViews435337421__poll" style="--detailsViews435337421-valueHeight:109px;"></div><div class="detailsViews435337421__text">special-attack</div></div><div class="detailsViews435337421__stat" title="85"><div class="detailsViews435337421__poll" style="--detailsViews435337421-valueHeight:85px;"></div><div class="detailsViews435337421__text">special-defense</div></div><div class="detailsViews435337421__stat" title="100"><div class="detailsViews435337421__poll" style="--detailsViews435337421-valueHeight:100px;"></div><div class="detailsViews435337421__text">speed</div></div></div></div></div></div><div class="buttonsSection3084687008__root"><button class="buttonsSection3084687008__arrowBtn">◀</button><button class="buttonsSection3084687008__arrowBtn">▶</button></div></div></div></div></main></div></body></html>

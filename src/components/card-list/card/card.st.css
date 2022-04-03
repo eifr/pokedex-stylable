@@ -1,0 +1,14 @@
+.root {
+    background-color: var(--typeColor);
+    cursor: pointer;
+    width: 115px;
+    height: 140px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 2px solid white;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
+    content-visibility: auto;
+}

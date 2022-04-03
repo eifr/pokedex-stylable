@@ -1,0 +1,15 @@
+.root {}
+
+.tabBtn {
+    width: 120px;
+    text-align: left;
+    border: none;
+    background: #E54222;
+    color: white;
+    font-size: large;
+    margin-right: 10px;
+    border-radius: 4px;
+    border-right: 2px solid #DFDFDF;
+    border-bottom: 2px solid #DFDFDF;
+
+}

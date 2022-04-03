@@ -1,0 +1,20 @@
+:vars {
+    pokemonGrey: #DFDFDF;
+}
+
+.root {
+    border: 15px solid value(pokemonGrey);
+    padding: 10px;
+    height: 300px;
+    border-radius: 4px;
+    background-color: var(--typeColor);
+    color: white;
+    text-transform: capitalize;
+}
+
+.details {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(250, 250, 250, .2);
+    height: 100%;
+}
