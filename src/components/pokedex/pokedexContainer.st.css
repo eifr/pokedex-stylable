@@ -32,21 +32,18 @@
 }
 
 .circle {
+    -st-states: large;
     border-radius: 50px;
     background-color: var(--color);
-}
-
-.smallCircle {
-    -st-extends: circle;
     border: 1px solid black;
     height: 20px;
     width: 20px;
     margin-top: 10px;
 }
 
-.largeCircle {
-    -st-extends: circle;
+.circle:large {
     border: 5px solid #DFDFDF;
     height: 55px;
     width: 55px;
+    margin-top: 0px;
 }
