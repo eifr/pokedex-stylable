@@ -12,7 +12,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ image, name, type, onClick }) => {
     return (
         <div
-            className={st(classes.root)}
+            className={classes.root}
             style={{ [vars.typeColor]: pokemonTypeColors[type] }}
             onClick={onClick}
         >

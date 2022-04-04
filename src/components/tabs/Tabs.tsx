@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CardList from '../card-list/CardList';
 import Search from '../search-input/Search';
-import { st, classes } from './tabs.st.css';
+import { classes } from './tabs.st.css';
 
 const Tabs: React.FC = () => {
     const pokedexTabs: { [key: string]: { component: JSX.Element; label: string } } = {
@@ -14,7 +14,7 @@ const Tabs: React.FC = () => {
     const labels = Object.keys(pokedexTabs).map((key) => {
         return (
             <button
-                className={st(classes.tabBtn)}
+                className={classes.tabBtn}
                 key={key}
                 onClick={() => setComponentToDisplay(pokedexTabs[key].component)}
             >

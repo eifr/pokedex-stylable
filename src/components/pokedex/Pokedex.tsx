@@ -1,4 +1,4 @@
-import { st, classes } from './pokedexContainer.st.css';
+import { classes } from './pokedexContainer.st.css';
 import PokemonInfo from '../pokemon-info/Info';
 import Tabs from '../tabs/Tabs';
 import { createContext, useEffect, useState } from 'react';
@@ -29,7 +29,7 @@ const Pokedex = () => {
     }, []);
 
     return (
-        <div className={st(classes.root)}>
+        <div className={classes.root}>
             <PokedexContext.Provider
                 value={{
                     allPokemons,
@@ -37,10 +37,10 @@ const Pokedex = () => {
                     setSelectedPokemon,
                 }}
             >
-                <div className={st(classes.container)}>
+                <div className={classes.container}>
                     <Tabs />
                 </div>
-                <div className={st(classes.container)}>
+                <div className={classes.container}>
                     <Top />
                     <PokemonInfo />
                 </div>

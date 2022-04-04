@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { PokedexContext } from '../pokedex/Pokedex';
 import { ButtonsSection } from './buttons-section/ButtonsSection';
 import DetailsSection from './details-section/DetailsSection';
-import { st, classes } from './info.st.css';
+import { classes } from './info.st.css';
 import PokemonOverview from './details-section/details-views/PokemonOverview';
 import type { PokemonInfo } from '../../types';
 import PokemonStats from './details-section/details-views/PokemonStats';
@@ -48,7 +48,7 @@ const Info = () => {
             : null;
 
     return (
-        <div className={st(classes.root)}>
+        <div className={classes.root}>
             <DetailsSection
                 selectedPokemon={selectedPokemon}
                 viewToDisplay={infoViews[currentView]}

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import type { PokemonInfo } from '../../types';
-import { st, classes } from './card-list.st.css';
+import { classes } from './card-list.st.css';
 import { PokedexContext } from '../pokedex/Pokedex';
 import Card from './card/Card';
 import { getPokemonInfo } from '../../api';
@@ -42,8 +42,8 @@ const CardList: React.FC = () => {
     }, [allPokemons]);
 
     return (
-        <div className={st(classes.root)}>
-            <div className={st(classes.listContainer)}>
+        <div className={classes.root}>
+            <div className={classes.listContainer}>
                 {detailedPokemonList.map((pokemon) => {
                     const { name, sprites, types } = pokemon;
                     return (
@@ -58,7 +58,7 @@ const CardList: React.FC = () => {
                 })}
             </div>
             <button
-                className={st(classes.loadMoreBtn)}
+                className={classes.loadMoreBtn}
                 onClick={() => {
                     void loadMore();
                 }}

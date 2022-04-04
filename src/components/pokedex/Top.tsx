@@ -3,16 +3,10 @@ import { pokemonTypeColors } from '../../colors/pokemonTypeColors';
 
 const Top = () => {
     return (
-        <div className={st(classes.top)}>
-            <div className={st(classes.circle)} style={{ [vars.color]: pokemonTypeColors.grass }} />
-            <div
-                className={st(classes.circle)}
-                style={{ [vars.color]: pokemonTypeColors.electric }}
-            />
-            <div
-                className={st(classes.circle)}
-                style={{ [vars.color]: pokemonTypeColors.fighting }}
-            />
+        <div className={classes.top}>
+            <div className={classes.circle} style={{ [vars.color]: pokemonTypeColors.grass }} />
+            <div className={classes.circle} style={{ [vars.color]: pokemonTypeColors.electric }} />
+            <div className={classes.circle} style={{ [vars.color]: pokemonTypeColors.fighting }} />
             <div
                 className={st(classes.circle, { large: true })}
                 style={{ [vars.color]: pokemonTypeColors.water }}

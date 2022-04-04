@@ -1,4 +1,4 @@
-import { st, classes } from './buttonsSection.st.css';
+import { classes } from './buttonsSection.st.css';
 
 interface ButtonsSectionProps {
     isPokemonSelected: boolean;
@@ -12,9 +12,9 @@ export const ButtonsSection: React.FC<ButtonsSectionProps> = ({
     next,
 }) => {
     return (
-        <div className={st(classes.root)}>
+        <div className={classes.root}>
             <button
-                className={st(classes.arrowBtn)}
+                className={classes.arrowBtn}
                 disabled={!isPokemonSelected || prev === null}
                 onClick={() => {
                     prev?.();
@@ -23,7 +23,7 @@ export const ButtonsSection: React.FC<ButtonsSectionProps> = ({
                 ◀
             </button>
             <button
-                className={st(classes.arrowBtn)}
+                className={classes.arrowBtn}
                 disabled={!isPokemonSelected || next === null}
                 onClick={() => {
                     next?.();

@@ -1,5 +1,5 @@
 import type { PokemonInfo } from '../../../types';
-import { st, classes, vars } from './detailsSection.st.css';
+import { classes, vars } from './detailsSection.st.css';
 import { pokemonTypeColors } from '../../../colors/pokemonTypeColors';
 import logo from '../../../../public/assets/International_Pokémon_logo.svg.png';
 
@@ -16,14 +16,11 @@ const DetailsSection: React.FC<SelectedPokemon> = ({ selectedPokemon, viewToDisp
     const pokemonType = types?.[0].type.name ?? DEFAULT_TYPE;
 
     return (
-        <div
-            style={{ [vars.typeColor]: pokemonTypeColors[pokemonType] }}
-            className={st(classes.root)}
-        >
+        <div style={{ [vars.typeColor]: pokemonTypeColors[pokemonType] }} className={classes.root}>
             {selectedPokemon ? (
-                <div className={st(classes.details)}>{viewToDisplay({ selectedPokemon })}</div>
+                <div className={classes.details}>{viewToDisplay({ selectedPokemon })}</div>
             ) : (
-                <div className={st(classes.empty)}>
+                <div className={classes.empty}>
                     <img src={logo} />
                 </div>
             )}

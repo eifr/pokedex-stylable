@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { getPokemonInfo } from '../../api';
 import { PokedexContext } from '../pokedex/Pokedex';
-import { st, classes } from './search.st.css';
+import { classes } from './search.st.css';
 import Select from 'react-select';
 
 const Search: React.FC = () => {
@@ -15,7 +15,7 @@ const Search: React.FC = () => {
     };
 
     return (
-        <div className={st(classes.root)}>
+        <div className={classes.root}>
             <Select
                 onChange={(selectedOption) => {
                     if (selectedOption == null) return;
