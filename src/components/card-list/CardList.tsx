@@ -6,6 +6,7 @@ import Card from './card/Card';
 import { getPokemonInfo } from '../../api';
 
 const NUM_OF_CARDS = 20;
+const MAX_NUM_OF_POKEMONS = 1126;
 
 const CardList: React.FC = () => {
     const [detailedPokemonList, setDetailedPokemonList] = useState<PokemonInfo[]>([]);
@@ -14,8 +15,9 @@ const CardList: React.FC = () => {
     async function createPokemonObject(numOfCards: number) {
         const currentFetch = allPokemons?.slice(
             detailedPokemonList.length,
-            detailedPokemonList.length + numOfCards
+            Math.min(detailedPokemonList.length + numOfCards, MAX_NUM_OF_POKEMONS)
         );
+
         let pokemons: PokemonInfo[] = [];
 
         if (!currentFetch) return;
@@ -35,9 +37,7 @@ const CardList: React.FC = () => {
     }
 
     useEffect(() => {
-        if (allPokemons?.length ?? 0 > 0) {
-            void createPokemonObject(NUM_OF_CARDS);
-        }
+        void createPokemonObject(NUM_OF_CARDS);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allPokemons]);
 

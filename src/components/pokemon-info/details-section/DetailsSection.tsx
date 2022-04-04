@@ -23,15 +23,8 @@ const DetailsSection: React.FC<SelectedPokemon> = ({ selectedPokemon, viewToDisp
             {selectedPokemon ? (
                 <div className={st(classes.details)}>{viewToDisplay({ selectedPokemon })}</div>
             ) : (
-                <div
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '100%',
-                    }}
-                >
-                    <img style={{ width: 300 }} src={logo} />
+                <div className={st(classes.empty)}>
+                    <img src={logo} />
                 </div>
             )}
         </div>

@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useState } from 'react';
+import { useContext } from 'react';
 import { getPokemonInfo } from '../../api';
 import { PokedexContext } from '../pokedex/Pokedex';
 import { st, classes } from './search.st.css';

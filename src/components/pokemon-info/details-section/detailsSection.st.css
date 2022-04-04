@@ -18,3 +18,14 @@
     background-color: rgba(250, 250, 250, .2);
     height: 100%;
 }
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.empty img {
+    width: 300px;
+}
