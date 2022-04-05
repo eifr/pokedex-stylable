@@ -1,6 +1,6 @@
-import type { PokemonInfo, PokemonTypes } from '../../../../types';
-import { pokemonTypeColors } from '../../../../colors/pokemonTypeColors';
-import { classes, vars } from './detailsViews.st.css';
+import type { PokemonInfo, PokemonTypes } from '../../../../../types';
+import { pokemonTypeColors } from '../../../../../colors/pokemonTypeColors';
+import { classes, vars } from '../detailsViews.st.css';
 
 const Type = ({ type }: { type: PokemonTypes }) => {
     return (

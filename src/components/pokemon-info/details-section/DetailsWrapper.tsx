@@ -1,5 +1,5 @@
 import type { PokemonInfo } from '../../../types';
-import { classes, vars } from './detailsSection.st.css';
+import { classes, vars } from './detailsWrapper.st.css';
 import { pokemonTypeColors } from '../../../colors/pokemonTypeColors';
 import logo from '../../../../public/assets/International_Pokémon_logo.svg.png';
 
@@ -10,7 +10,7 @@ interface SelectedPokemon {
     viewToDisplay: ({ selectedPokemon }: { selectedPokemon: PokemonInfo }) => JSX.Element;
 }
 
-const DetailsSection: React.VFC<SelectedPokemon> = ({ selectedPokemon, viewToDisplay }) => {
+const DetailsWrapper: React.VFC<SelectedPokemon> = ({ selectedPokemon, viewToDisplay }) => {
     const { types } = selectedPokemon || {};
 
     const pokemonType = types?.[0].type.name ?? DEFAULT_TYPE;
@@ -28,4 +28,4 @@ const DetailsSection: React.VFC<SelectedPokemon> = ({ selectedPokemon, viewToDis
     );
 };
 
-export default DetailsSection;
+export default DetailsWrapper;

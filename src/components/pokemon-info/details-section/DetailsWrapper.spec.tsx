@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import DetailsSection from './DetailsSection';
+import DetailsSection from './DetailsWrapper';
 import { detailsSectionSelector } from '../../../../test-toolkit/selectors';
 import { getPokemonObj } from '../../../../test-toolkit/utils';
 

@@ -3,9 +3,9 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
 import { detailsViewSelector } from '../../../../../test-toolkit/selectors';
-import PokemonOverview from './PokemonOverview';
+import PokemonOverview from './pokemon-overview/PokemonOverview';
 import { getPokemonObj } from '../../../../../test-toolkit/utils';
-import PokemonStats from './PokemonStats';
+import PokemonStats from './pokemon-stats/PokemonStats';
 
 let container: Element;
 const pokemon = getPokemonObj();

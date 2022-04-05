@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { PokedexContext } from '../pokedex/Pokedex';
 import { ButtonsSection } from './buttons-section/ButtonsSection';
-import DetailsSection from './details-section/DetailsSection';
+import DetailsSection from './details-section/DetailsWrapper';
 import { classes } from './info.st.css';
-import PokemonOverview from './details-section/details-views/PokemonOverview';
+import PokemonOverview from './details-section/details-views/pokemon-overview/PokemonOverview';
 import type { PokemonInfo } from '../../types';
-import PokemonStats from './details-section/details-views/PokemonStats';
+import PokemonStats from './details-section/details-views/pokemon-stats/PokemonStats';
 
 enum ViewsType {
     PokemonOverview = 1,

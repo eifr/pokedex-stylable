@@ -1,6 +1,6 @@
 import * as cardStylesheet from '../../pokedex-stylable/src/components/card-list/card/card.st.css';
 import * as cardListStylesheet from '../../pokedex-stylable/src/components/card-list/card-list.st.css';
-import * as detailsSectionStylesheet from '../../pokedex-stylable/src/components/pokemon-info/details-section/detailsSection.st.css';
+import * as detailsSectionStylesheet from '../../pokedex-stylable/src/components/pokemon-info/details-section/detailsWrapper.st.css';
 import * as detailsViewStylesheet from '../../pokedex-stylable/src/components/pokemon-info/details-section/details-views/detailsViews.st.css';
 import * as tabsStylesheet from '../../pokedex-stylable/src/components/tabs/tabs.st.css';
 import * as buttonsSectionStylesheet from '../../pokedex-stylable/src/components/pokemon-info/buttons-section/buttonsSection.st.css';

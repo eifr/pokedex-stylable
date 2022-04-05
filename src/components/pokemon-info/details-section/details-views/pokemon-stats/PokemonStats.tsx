@@ -1,6 +1,6 @@
-import { pokemonTypeColors } from '../../../../colors/pokemonTypeColors';
-import type { PokemonInfo } from '../../../../types';
-import { classes, vars } from './detailsViews.st.css';
+import { pokemonTypeColors } from '../../../../../colors/pokemonTypeColors';
+import type { PokemonInfo } from '../../../../../types';
+import { classes, vars } from '../detailsViews.st.css';
 
 const PokemonStats = ({ selectedPokemon }: { selectedPokemon: PokemonInfo }) => {
     const { name, stats, types } = selectedPokemon;
