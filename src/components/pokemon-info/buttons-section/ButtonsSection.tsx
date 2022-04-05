@@ -6,7 +6,7 @@ interface ButtonsSectionProps {
     prev: null | (() => void);
 }
 
-export const ButtonsSection: React.FC<ButtonsSectionProps> = ({
+export const ButtonsSection: React.VFC<ButtonsSectionProps> = ({
     isPokemonSelected,
     prev,
     next,

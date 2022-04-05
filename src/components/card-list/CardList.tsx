@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
-import type { PokemonInfo } from '../../types';
 import { classes } from './card-list.st.css';
 import { PokedexContext } from '../pokedex/Pokedex';
 import Card from './card/Card';
 import { getPokemonInfo } from '../../api';
+import type { PokemonInfo } from '../../types';
 
 const NUM_OF_CARDS = 20;
 const MAX_NUM_OF_POKEMONS = 1126;
 
-const CardList: React.FC = () => {
+const CardList: React.VFC = () => {
     const [detailedPokemonList, setDetailedPokemonList] = useState<PokemonInfo[]>([]);
     const { allPokemons, setSelectedPokemon } = useContext(PokedexContext);
 
@@ -23,8 +23,10 @@ const CardList: React.FC = () => {
         if (!currentFetch) return;
         await Promise.all(
             currentFetch?.map(async (pokemon) => {
-                const data: PokemonInfo = await getPokemonInfo(pokemon.name);
-                pokemons = [...pokemons, data];
+                const data = await getPokemonInfo(pokemon.name);
+                if (data !== null) {
+                    pokemons = [...pokemons, data];
+                }
             })
         );
 

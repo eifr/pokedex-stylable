@@ -10,7 +10,7 @@ interface SelectedPokemon {
     viewToDisplay: ({ selectedPokemon }: { selectedPokemon: PokemonInfo }) => JSX.Element;
 }
 
-const DetailsSection: React.FC<SelectedPokemon> = ({ selectedPokemon, viewToDisplay }) => {
+const DetailsSection: React.VFC<SelectedPokemon> = ({ selectedPokemon, viewToDisplay }) => {
     const { types } = selectedPokemon || {};
 
     const pokemonType = types?.[0].type.name ?? DEFAULT_TYPE;

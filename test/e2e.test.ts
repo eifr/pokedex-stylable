@@ -23,7 +23,7 @@ describe('e2e', () => {
 
     it('Find pokemon cards', async () => {
         const pokemonCards = page.locator(cardSelector.root);
-        await pokemonCards.first().waitFor();
+        await pokemonCards.nth(10).waitFor();
         const num = await pokemonCards.count();
 
         expect(num).to.equal(20);
@@ -35,7 +35,7 @@ describe('e2e', () => {
         await button.click();
 
         const pokemonCards = page.locator(cardSelector.root);
-        await pokemonCards.nth(21).waitFor();
+        await pokemonCards.nth(30).waitFor();
         expect(await pokemonCards.count()).to.equal(40);
     });
 

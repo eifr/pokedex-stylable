@@ -9,7 +9,7 @@ interface CardProps {
     onClick: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ image, name, type, onClick }) => {
+const Card: React.VFC<CardProps> = ({ image, name, type, onClick }) => {
     return (
         <div
             className={classes.root}

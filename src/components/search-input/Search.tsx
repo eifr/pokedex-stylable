@@ -4,7 +4,7 @@ import { PokedexContext } from '../pokedex/Pokedex';
 import { classes } from './search.st.css';
 import Select from 'react-select';
 
-const Search: React.FC = () => {
+const Search: React.VFC = () => {
     const { allPokemons, setSelectedPokemon } = useContext(PokedexContext);
 
     const onPokemonClick = async (pokemonName: string) => {

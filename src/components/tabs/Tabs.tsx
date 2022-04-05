@@ -3,7 +3,7 @@ import CardList from '../card-list/CardList';
 import Search from '../search-input/Search';
 import { classes } from './tabs.st.css';
 
-const Tabs: React.FC = () => {
+const Tabs: React.VFC = () => {
     const pokedexTabs: { [key: string]: { component: JSX.Element; label: string } } = {
         browse: { component: <CardList />, label: 'Browse' },
         search: { component: <Search />, label: 'Search' },
