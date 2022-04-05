@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type React from 'react';
 import { st, classes } from './app.st.css';
 import Pokedex from './components/pokedex/Pokedex';
