@@ -1,5 +1,3 @@
-// import type { PokemonTypes } from './colors/pokemonTypeColors';
-
 export type PokedexAppContext = {
     allPokemons: PokemonListItem[] | null;
     selectedPokemon: PokemonInfo | null;

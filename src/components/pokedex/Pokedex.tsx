@@ -16,7 +16,7 @@ export const PokedexContext = createContext<PokedexAppContext>({
     setSelectedPokemon: null,
 });
 
-const Pokedex = () => {
+const Pokedex: React.VFC = () => {
     const [allPokemons, setAllPokemons] = useState<PokemonListItem[] | null>(null);
     const [selectedPokemon, setSelectedPokemon] = useState<PokemonInfoType | null>(null);
 
