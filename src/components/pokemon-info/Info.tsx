@@ -25,7 +25,7 @@ type ViewType = keyof typeof infoViews;
 
 const ENUM_SIZE = Object.keys(infoViews).length;
 
-const Info = () => {
+const Info: React.VFC = () => {
     const { selectedPokemon } = useContext(PokedexContext);
     const [currentView, setCurrentView] = useState<ViewType>(ViewsType.PokemonOverview);
 

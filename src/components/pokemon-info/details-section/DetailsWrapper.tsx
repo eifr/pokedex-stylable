@@ -12,7 +12,6 @@ interface SelectedPokemon {
 
 const DetailsWrapper: React.VFC<SelectedPokemon> = ({ selectedPokemon, viewToDisplay }) => {
     const { types } = selectedPokemon || {};
-
     const pokemonType = types?.[0].type.name ?? DEFAULT_TYPE;
 
     return (

@@ -2,7 +2,11 @@ import type { PokemonInfo, PokemonTypes } from '../../../../../types';
 import { pokemonTypeColors } from '../../../../../colors/pokemonTypeColors';
 import { classes, vars } from '../detailsViews.st.css';
 
-const Type = ({ type }: { type: PokemonTypes }) => {
+interface TypeProps {
+    type: PokemonTypes;
+}
+
+const Type: React.VFC<TypeProps> = ({ type }) => {
     return (
         <div className={classes.typeCapsule} style={{ [vars.typeColor]: pokemonTypeColors[type] }}>
             {type}
@@ -10,15 +14,13 @@ const Type = ({ type }: { type: PokemonTypes }) => {
     );
 };
 
-const KeyVal = ({
-    keyName,
-    value,
-    className,
-}: {
+interface KeyValProps {
     keyName: string;
     value: string;
     className?: string;
-}) => {
+}
+
+const KeyVal: React.VFC<KeyValProps> = ({ keyName, value, className }) => {
     return (
         <div className={(classes.keyVal, className)}>
             <div>{keyName}</div>
@@ -27,7 +29,11 @@ const KeyVal = ({
     );
 };
 
-const PokemonOverview = ({ selectedPokemon }: { selectedPokemon: PokemonInfo }) => {
+interface PokemonOverviewProps {
+    selectedPokemon: PokemonInfo
+}
+
+const PokemonOverview: React.VFC<PokemonOverviewProps> = ({ selectedPokemon }) => {
     const { id, name, sprites, weight, height, types } = selectedPokemon;
     return (
         <>

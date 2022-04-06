@@ -1,7 +1,7 @@
 import { st, classes, vars } from './pokedexContainer.st.css';
 import { pokemonTypeColors } from '../../colors/pokemonTypeColors';
 
-const Top = () => {
+const Top: React.VFC = () => {
     return (
         <div className={classes.top}>
             <div className={classes.circle} style={{ [vars.color]: pokemonTypeColors.grass }} />

@@ -4,6 +4,7 @@ import { classes, vars } from '../detailsViews.st.css';
 
 const PokemonStats = ({ selectedPokemon }: { selectedPokemon: PokemonInfo }) => {
     const { name, stats, types } = selectedPokemon;
+    const[pokemonType] = types;
 
     return (
         <div className={classes.statsContainer}>
@@ -15,7 +16,7 @@ const PokemonStats = ({ selectedPokemon }: { selectedPokemon: PokemonInfo }) => 
                             className={classes.poll}
                             style={{
                                 [vars.valueHeight]: `${base_stat}px`,
-                                [vars.typeColor]: pokemonTypeColors[types[0].type.name],
+                                [vars.typeColor]: pokemonTypeColors[pokemonType.type.name],
                             }}
                         />
                         <div className={classes.text}>{stat.name}</div>
