@@ -9,12 +9,10 @@ describe('e2e', () => {
     let page: Page;
 
     before(async () => {
-        const DEFAULT_PORT = 8080;
-        const DEFAULT_HOST = 'localhost';
         const { port, host } = await runServer();
         browser = await chromium.launch();
         page = await browser.newPage();
-        await page.goto(`${host ?? DEFAULT_HOST}:${port ?? DEFAULT_PORT}`);
+        await page.goto(`${host}:${port}`);
     });
 
     after(async () => {
@@ -25,9 +23,8 @@ describe('e2e', () => {
     it('Checks initial group of pokemon cards', async () => {
         const pokemonCards = page.locator(cardSelector.root);
         await pokemonCards.nth(NUM_OF_POKEMON_CARDS - 1).waitFor();
-        const num = await pokemonCards.count();
 
-        expect(num, 'failed to load initial group').to.equal(NUM_OF_POKEMON_CARDS);
+        expect(await pokemonCards.count(), 'failed to load initial group').to.equal(NUM_OF_POKEMON_CARDS);
     });
 
     it('Loads another group of pokemon cards by clicking on load more button', async () => {
@@ -42,7 +39,7 @@ describe('e2e', () => {
         );
     });
 
-    it("Displays pokemon info by clicking on it's card", async () => {
+    it("Displays pokemon info by clicking on its card", async () => {
         const BULBASAUR = 'bulbasaur';
         const selectedPokemonInfo = page.locator(detailsSectionSelector.root);
         const image = selectedPokemonInfo.locator('img');
@@ -52,8 +49,7 @@ describe('e2e', () => {
         expect(pokemonName).to.not.contain(BULBASAUR);
 
         const firstPokemonCard = page.locator(cardSelector.root).first();
-        const firstCardNameText = await firstPokemonCard.textContent();
-        expect(firstCardNameText).to.equal(BULBASAUR);
+        expect(await firstPokemonCard.textContent()).to.equal(BULBASAUR);
 
         await firstPokemonCard.click();
         expect(
@@ -62,7 +58,7 @@ describe('e2e', () => {
         ).to.contain(BULBASAUR);
     });
 
-    it("Displays pokemon info by searching it's name", async () => {
+    it("Displays pokemon info by searching its name", async () => {
         const PIKACHU = 'pikachu';
         const searchTab = page.locator(tabsSelector.tabBtn, { hasText: 'Search' });
         await searchTab.click();

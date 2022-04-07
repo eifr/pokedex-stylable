@@ -13,6 +13,9 @@ const server = new WebpackDevServer(devServerOptions, compiler);
 export const runServer = async () => {
     console.log('Starting server...');
     await server.start();
+    if (!server.options.port || !server.options.host) {
+        throw new Error('No Port or Host from server');
+    }
     return { port: server.options.port, host: server.options.host };
 };
 
