@@ -4,16 +4,17 @@ import { cardSelector, detailsSectionSelector, tabsSelector } from '../test-tool
 import { runServer, stopServer } from '../test-toolkit/server';
 
 describe('e2e', () => {
+    const NUM_OF_POKEMON_CARDS = 20;
     let browser: Browser;
     let page: Page;
 
     before(async () => {
-        await runServer();
-        browser = await chromium.launch({
-            headless: false,
-        });
+        const DEFAULT_PORT = 8080;
+        const DEFAULT_HOST = 'localhost';
+        const { port, host } = await runServer();
+        browser = await chromium.launch();
         page = await browser.newPage();
-        await page.goto('localhost:8080');
+        await page.goto(`${host ?? DEFAULT_HOST}:${port ?? DEFAULT_PORT}`);
     });
 
     after(async () => {
@@ -21,51 +22,61 @@ describe('e2e', () => {
         await stopServer();
     });
 
-    it('Find pokemon cards', async () => {
+    it('Checks initial group of pokemon cards', async () => {
         const pokemonCards = page.locator(cardSelector.root);
-        await pokemonCards.nth(10).waitFor();
+        await pokemonCards.nth(NUM_OF_POKEMON_CARDS - 1).waitFor();
         const num = await pokemonCards.count();
 
-        expect(num).to.equal(20);
+        expect(num, 'failed to load initial group').to.equal(NUM_OF_POKEMON_CARDS);
     });
 
-    it('Click on load more button', async () => {
+    it('Loads another group of pokemon cards by clicking on load more button', async () => {
         const button = page.locator('button', { hasText: 'Load More' });
-        await button.waitFor();
         await button.click();
 
         const pokemonCards = page.locator(cardSelector.root);
-        await pokemonCards.nth(30).waitFor();
-        expect(await pokemonCards.count()).to.equal(40);
+        await pokemonCards.nth(NUM_OF_POKEMON_CARDS * 2 - 1).waitFor();
+
+        expect(await pokemonCards.count(), 'failed to click on load more and load cards').to.equal(
+            NUM_OF_POKEMON_CARDS * 2
+        );
     });
 
-    it('Find pokemon card and click on it', async () => {
+    it("Displays pokemon info by clicking on it's card", async () => {
+        const BULBASAUR = 'bulbasaur';
         const selectedPokemonInfo = page.locator(detailsSectionSelector.root);
-        await selectedPokemonInfo.waitFor();
+        const image = selectedPokemonInfo.locator('img');
+        expect(await image.getAttribute('title')).to.equal('No pokemon selected');
+
         const pokemonName = await selectedPokemonInfo.textContent();
-        expect(pokemonName?.toLowerCase()).to.not.contain('bulbasaur');
+        expect(pokemonName).to.not.contain(BULBASAUR);
 
         const firstPokemonCard = page.locator(cardSelector.root).first();
-        await firstPokemonCard.waitFor();
-
         const firstCardNameText = await firstPokemonCard.textContent();
-        expect(firstCardNameText?.toLocaleLowerCase()).to.equal('bulbasaur');
+        expect(firstCardNameText).to.equal(BULBASAUR);
 
         await firstPokemonCard.click();
-        expect(await selectedPokemonInfo.textContent()).to.contain('bulbasaur');
+        expect(
+            await selectedPokemonInfo.textContent(),
+            'failed to display the correct pokemon by click on card'
+        ).to.contain(BULBASAUR);
     });
 
-    it('Search for a pokemon', async () => {
+    it("Displays pokemon info by searching it's name", async () => {
+        const PIKACHU = 'pikachu';
         const searchTab = page.locator(tabsSelector.tabBtn, { hasText: 'Search' });
-        await searchTab.waitFor();
         await searchTab.click();
 
         const selectedPokemonInfo = page.locator(detailsSectionSelector.root);
-        expect(await selectedPokemonInfo.textContent()).to.not.contain('pikachu');
+        expect(await selectedPokemonInfo.textContent()).to.not.contain(PIKACHU);
+
         const searchInput = page.locator('input');
-        await searchInput.fill('pikachu');
+        await searchInput.fill(PIKACHU);
         await page.keyboard.press('Enter');
-        await selectedPokemonInfo.waitFor({ timeout: 3000 });
-        expect(await selectedPokemonInfo.textContent()).to.contain('pikachu');
+        await page.locator(detailsSectionSelector.root, { hasText: PIKACHU }).waitFor();
+        expect(
+            await selectedPokemonInfo.textContent(),
+            'failed to display the correct pokemon by search pokemon name'
+        ).to.contain(PIKACHU);
     });
 });

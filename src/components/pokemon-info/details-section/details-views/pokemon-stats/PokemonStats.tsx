@@ -4,7 +4,7 @@ import { classes, vars } from '../detailsViews.st.css';
 
 const PokemonStats = ({ selectedPokemon }: { selectedPokemon: PokemonInfo }) => {
     const { name, stats, types } = selectedPokemon;
-    const[pokemonType] = types;
+    const [pokemonType] = types;
 
     return (
         <div className={classes.statsContainer}>

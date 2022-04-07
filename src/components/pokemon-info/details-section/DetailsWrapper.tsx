@@ -20,7 +20,7 @@ const DetailsWrapper: React.VFC<SelectedPokemon> = ({ selectedPokemon, viewToDis
                 <div className={classes.details}>{viewToDisplay({ selectedPokemon })}</div>
             ) : (
                 <div className={classes.empty}>
-                    <img src={logo} />
+                    <img alt="pokemon" title="No pokemon selected" src={logo} />
                 </div>
             )}
         </div>

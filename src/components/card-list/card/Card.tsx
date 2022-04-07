@@ -1,4 +1,4 @@
-import { st, classes, vars } from './card.st.css';
+import { classes, vars } from './card.st.css';
 import { pokemonTypeColors } from '../../../colors/pokemonTypeColors';
 import type { PokemonTypes } from '../../../types';
 

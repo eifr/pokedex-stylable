@@ -1,6 +1,6 @@
 import type { PokemonInfo, PokemonTypes } from '../../../../../types';
 import { pokemonTypeColors } from '../../../../../colors/pokemonTypeColors';
-import { classes, vars } from '../detailsViews.st.css';
+import { st, classes, vars } from '../detailsViews.st.css';
 
 interface TypeProps {
     type: PokemonTypes;
@@ -22,7 +22,7 @@ interface KeyValProps {
 
 const KeyVal: React.VFC<KeyValProps> = ({ keyName, value, className }) => {
     return (
-        <div className={(classes.keyVal, className)}>
+        <div className={st(classes.keyVal, className)}>
             <div>{keyName}</div>
             <div>{value}</div>
         </div>
@@ -30,7 +30,7 @@ const KeyVal: React.VFC<KeyValProps> = ({ keyName, value, className }) => {
 };
 
 interface PokemonOverviewProps {
-    selectedPokemon: PokemonInfo
+    selectedPokemon: PokemonInfo;
 }
 
 const PokemonOverview: React.VFC<PokemonOverviewProps> = ({ selectedPokemon }) => {

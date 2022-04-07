@@ -37,7 +37,7 @@ it('render pokemon info data view - types', () => {
     const typeCapsules = container.querySelectorAll(detailsViewSelector.typeCapsule);
     typeCapsules.forEach((capsule, index) => {
         expect(capsule.textContent).to.include(pokemon.types[index].type.name);
-    })
+    });
 });
 
 it('render pokemon stats', () => {
