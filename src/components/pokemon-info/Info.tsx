@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { memo, useContext, useEffect, useState } from 'react';
 import { PokedexContext } from '../pokedex/Pokedex';
 import { ButtonsSection } from './buttons-section/ButtonsSection';
 import DetailsSection from './details-section/DetailsWrapper';
@@ -25,7 +25,7 @@ type ViewType = keyof typeof infoViews;
 
 const ENUM_SIZE = Object.keys(infoViews).length;
 
-const Info: React.VFC = () => {
+const Info: React.VFC = memo(() => {
     const { selectedPokemon } = useContext(PokedexContext);
     const [currentView, setCurrentView] = useState<ViewType>(ViewsType.PokemonOverview);
 
@@ -56,6 +56,8 @@ const Info: React.VFC = () => {
             <ButtonsSection isPokemonSelected={selectedPokemon !== null} next={next} prev={prev} />
         </div>
     );
-};
+});
+
+Info.displayName = 'Info';
 
 export default Info;

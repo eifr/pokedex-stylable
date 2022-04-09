@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { memo, useContext, useEffect, useState } from 'react';
 import { classes } from './card-list.st.css';
 import { PokedexContext } from '../pokedex/Pokedex';
 import Card from './card/Card';
@@ -8,7 +8,7 @@ import type { PokemonInfo } from '../../types';
 const NUM_OF_CARDS = 20;
 const MAX_NUM_OF_POKEMONS = 1126;
 
-const CardList: React.VFC = () => {
+const CardList: React.VFC = memo(() => {
     const [detailedPokemonList, setDetailedPokemonList] = useState<PokemonInfo[]>([]);
     const { allPokemons, setSelectedPokemon } = useContext(PokedexContext);
 
@@ -69,6 +69,8 @@ const CardList: React.VFC = () => {
             </button>
         </div>
     );
-};
+});
+
+CardList.displayName = 'CardList';
 
 export default CardList;

@@ -1,7 +1,7 @@
 import { classes } from './pokedexContainer.st.css';
 import PokemonInfo from '../pokemon-info/Info';
 import Tabs from '../tabs/Tabs';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, memo, useEffect, useState } from 'react';
 import type {
     PokedexAppContext,
     PokemonInfo as PokemonInfoType,
@@ -16,7 +16,7 @@ export const PokedexContext = createContext<PokedexAppContext>({
     setSelectedPokemon: null,
 });
 
-const Pokedex: React.VFC = () => {
+const Pokedex: React.VFC = memo(() => {
     const [allPokemons, setAllPokemons] = useState<PokemonListItem[] | null>(null);
     const [selectedPokemon, setSelectedPokemon] = useState<PokemonInfoType | null>(null);
 
@@ -47,6 +47,8 @@ const Pokedex: React.VFC = () => {
             </PokedexContext.Provider>
         </div>
     );
-};
+});
+
+Pokedex.displayName = 'Pokedex';
 
 export default Pokedex;

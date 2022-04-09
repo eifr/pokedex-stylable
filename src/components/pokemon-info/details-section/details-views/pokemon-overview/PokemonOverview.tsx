@@ -1,18 +1,21 @@
 import type { PokemonInfo, PokemonTypes } from '../../../../../types';
 import { pokemonTypeColors } from '../../../../../colors/pokemonTypeColors';
 import { st, classes, vars } from '../detailsViews.st.css';
+import { memo } from 'react';
 
 interface TypeProps {
     type: PokemonTypes;
 }
 
-const Type: React.VFC<TypeProps> = ({ type }) => {
+const Type: React.VFC<TypeProps> = memo(({ type }) => {
     return (
         <div className={classes.typeCapsule} style={{ [vars.typeColor]: pokemonTypeColors[type] }}>
             {type}
         </div>
     );
-};
+});
+
+Type.displayName = 'Type';
 
 interface KeyValProps {
     keyName: string;
@@ -20,20 +23,22 @@ interface KeyValProps {
     className?: string;
 }
 
-const KeyVal: React.VFC<KeyValProps> = ({ keyName, value, className }) => {
+const KeyVal: React.VFC<KeyValProps> = memo(({ keyName, value, className }) => {
     return (
         <div className={st(classes.keyVal, className)}>
             <div>{keyName}</div>
             <div>{value}</div>
         </div>
     );
-};
+});
+
+KeyVal.displayName = 'KeyVal';
 
 interface PokemonOverviewProps {
     selectedPokemon: PokemonInfo;
 }
 
-const PokemonOverview: React.VFC<PokemonOverviewProps> = ({ selectedPokemon }) => {
+const PokemonOverview: React.VFC<PokemonOverviewProps> = memo(({ selectedPokemon }) => {
     const { id, name, sprites, weight, height, types } = selectedPokemon;
     return (
         <>
@@ -54,6 +59,8 @@ const PokemonOverview: React.VFC<PokemonOverviewProps> = ({ selectedPokemon }) =
             </div>
         </>
     );
-};
+});
+
+PokemonOverview.displayName = 'PokemonOverview';
 
 export default PokemonOverview;

@@ -1,10 +1,10 @@
-import { useContext } from 'react';
+import { memo, useContext } from 'react';
 import { getPokemonInfo } from '../../api';
 import { PokedexContext } from '../pokedex/Pokedex';
 import { classes } from './search.st.css';
 import Select from 'react-select';
 
-const Search: React.VFC = () => {
+const Search: React.VFC = memo(() => {
     const { allPokemons, setSelectedPokemon } = useContext(PokedexContext);
 
     const onPokemonClick = async (pokemonName: string) => {
@@ -25,6 +25,8 @@ const Search: React.VFC = () => {
             />
         </div>
     );
-};
+});
+
+Search.displayName = 'Search';
 
 export default Search;

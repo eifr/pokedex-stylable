@@ -4,6 +4,10 @@
     borderGrey: #DFDFDF
 }
 
+.buttonsWrapper {
+    height: 55px;
+}
+
 .tabBtn {
     width: 120px;
     text-align: left;

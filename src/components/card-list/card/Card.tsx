@@ -1,6 +1,7 @@
 import { classes, vars } from './card.st.css';
 import { pokemonTypeColors } from '../../../colors/pokemonTypeColors';
 import type { PokemonTypes } from '../../../types';
+import { memo } from 'react';
 
 interface CardProps {
     name: string;
@@ -9,7 +10,7 @@ interface CardProps {
     onClick: () => void;
 }
 
-const Card: React.VFC<CardProps> = ({ image, name, type, onClick }) => {
+const Card: React.VFC<CardProps> = memo<CardProps>(({ image, name, type, onClick }) => {
     return (
         <div
             className={classes.root}
@@ -20,6 +21,8 @@ const Card: React.VFC<CardProps> = ({ image, name, type, onClick }) => {
             <div>{name}</div>
         </div>
     );
-};
+});
+
+Card.displayName = 'Card';
 
 export default Card;

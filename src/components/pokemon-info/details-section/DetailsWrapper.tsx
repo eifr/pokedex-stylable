@@ -2,6 +2,7 @@ import type { PokemonInfo } from '../../../types';
 import { classes, vars } from './detailsWrapper.st.css';
 import { pokemonTypeColors } from '../../../colors/pokemonTypeColors';
 import logo from '../../../../public/assets/International_Pokémon_logo.svg.png';
+import { memo } from 'react';
 
 const DEFAULT_TYPE = 'water';
 
@@ -10,7 +11,7 @@ interface SelectedPokemon {
     viewToDisplay: ({ selectedPokemon }: { selectedPokemon: PokemonInfo }) => JSX.Element;
 }
 
-const DetailsWrapper: React.VFC<SelectedPokemon> = ({ selectedPokemon, viewToDisplay }) => {
+const DetailsWrapper: React.VFC<SelectedPokemon> = memo(({ selectedPokemon, viewToDisplay }) => {
     const { types } = selectedPokemon || {};
     const pokemonType = types?.[0].type.name ?? DEFAULT_TYPE;
 
@@ -25,6 +26,8 @@ const DetailsWrapper: React.VFC<SelectedPokemon> = ({ selectedPokemon, viewToDis
             )}
         </div>
     );
-};
+});
+
+DetailsWrapper.displayName = 'DetailsWrapper';
 
 export default DetailsWrapper;

@@ -1,34 +1,38 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import CardList from '../card-list/CardList';
 import Search from '../search-input/Search';
 import { classes } from './tabs.st.css';
 
-const Tabs: React.VFC = () => {
-    const pokedexTabs: { [key: string]: { component: JSX.Element; label: string } } = {
-        browse: { component: <CardList />, label: 'Browse' },
-        search: { component: <Search />, label: 'Search' },
-    };
+const Tabs: React.VFC = memo(() => {
+    const pokedexTabs: { component: JSX.Element; label: string }[] = [
+        { component: <CardList />, label: 'Browse' },
+        { component: <Search />, label: 'Search' },
+    ];
 
-    const [componentToDisplay, setComponentToDisplay] = useState(pokedexTabs['browse'].component);
+    const [firstTab] = pokedexTabs;
 
-    const labels = Object.keys(pokedexTabs).map((key) => {
+    const [componentToDisplay, setComponentToDisplay] = useState(firstTab.component);
+
+    const labels = pokedexTabs.map(({ component, label }) => {
         return (
             <button
                 className={classes.tabBtn}
-                key={key}
-                onClick={() => setComponentToDisplay(pokedexTabs[key].component)}
+                key={label}
+                onClick={() => setComponentToDisplay(component)}
             >
-                {pokedexTabs[key].label}
+                {label}
             </button>
         );
     });
 
     return (
         <div>
-            <div>{labels}</div>
+            <div className={classes.buttonsWrapper}>{labels}</div>
             <div>{componentToDisplay}</div>
         </div>
     );
-};
+});
+
+Tabs.displayName = 'Tabs';
 
 export default Tabs;
