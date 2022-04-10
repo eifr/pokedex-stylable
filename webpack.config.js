@@ -21,7 +21,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+        extensions: ['.ts', '.tsx', '.js', '.json'],
         fallback: {
             path: require.resolve('@file-services/path'),
             url: require.resolve('url'),
