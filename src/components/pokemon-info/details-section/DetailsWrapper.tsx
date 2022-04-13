@@ -1,6 +1,6 @@
 import type { PokemonInfo } from '../../../types';
 import { classes, vars } from './detailsWrapper.st.css';
-import { pokemonTypeColors } from '../../../colors/pokemonTypeColors';
+import { POKEMON_TYPE_COLORS } from '../../../colors/pokemonTypeColors';
 import logo from '../../../../public/assets/International_Pokémon_logo.svg.png';
 import { memo } from 'react';
 
@@ -11,12 +11,12 @@ interface SelectedPokemon {
     viewToDisplay: ({ selectedPokemon }: { selectedPokemon: PokemonInfo }) => JSX.Element;
 }
 
-const DetailsWrapper: React.VFC<SelectedPokemon> = memo(({ selectedPokemon, viewToDisplay }) => {
+const DetailsWrapper = memo<SelectedPokemon>(({ selectedPokemon, viewToDisplay }) => {
     const { types } = selectedPokemon || {};
     const pokemonType = types?.[0].type.name ?? DEFAULT_TYPE;
 
     return (
-        <div style={{ [vars.typeColor]: pokemonTypeColors[pokemonType] }} className={classes.root}>
+        <div style={{ [vars.typeColor]: POKEMON_TYPE_COLORS[pokemonType] }} className={classes.root}>
             {selectedPokemon ? (
                 <div className={classes.details}>{viewToDisplay({ selectedPokemon })}</div>
             ) : (

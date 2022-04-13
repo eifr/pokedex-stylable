@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { pokemonTypeColors } from '../../../../../colors/pokemonTypeColors';
+import { POKEMON_TYPE_COLORS } from '../../../../../colors/pokemonTypeColors';
 import type { PokemonInfo } from '../../../../../types';
 import { classes, vars } from '../detailsViews.st.css';
 
@@ -17,7 +17,7 @@ const PokemonStats = memo(({ selectedPokemon }: { selectedPokemon: PokemonInfo }
                             className={classes.poll}
                             style={{
                                 [vars.valueHeight]: `${base_stat}px`,
-                                [vars.typeColor]: pokemonTypeColors[pokemonType.type.name],
+                                [vars.typeColor]: POKEMON_TYPE_COLORS[pokemonType.type.name],
                             }}
                         />
                         <div className={classes.text}>{stat.name}</div>

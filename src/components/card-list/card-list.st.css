@@ -8,7 +8,9 @@
 .listContainer {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
     flex: 1 1;
+    margin-bottom: 5px;
 }
 
 .loadMoreBtn {

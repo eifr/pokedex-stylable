@@ -8,7 +8,7 @@ import type {
     PokemonListItem,
 } from '../../types';
 import Top from './Top';
-import { getAllPokemons } from '../../api';
+import { getAllPokemonsList } from '../../helpers';
 
 export const PokedexContext = createContext<PokedexAppContext>({
     allPokemons: null,
@@ -16,16 +16,18 @@ export const PokedexContext = createContext<PokedexAppContext>({
     setSelectedPokemon: null,
 });
 
-const Pokedex: React.VFC = memo(() => {
+const Pokedex = memo(() => {
     const [allPokemons, setAllPokemons] = useState<PokemonListItem[] | null>(null);
     const [selectedPokemon, setSelectedPokemon] = useState<PokemonInfoType | null>(null);
 
     useEffect(() => {
-        const getPokemons = async () => {
-            const allPokemons = await getAllPokemons();
-            setAllPokemons(allPokemons.results);
-        };
-        void getPokemons();
+        getAllPokemonsList()
+            .then((pokemonsList) => {
+                setAllPokemons(pokemonsList);
+            })
+            .catch((error) => {
+                alert(error);
+            });
     }, []);
 
     return (

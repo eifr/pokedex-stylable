@@ -2,46 +2,26 @@ import { memo, useContext, useEffect, useState } from 'react';
 import { classes } from './card-list.st.css';
 import { PokedexContext } from '../pokedex/Pokedex';
 import Card from './card/Card';
-import { getPokemonInfo } from '../../api';
 import type { PokemonInfo } from '../../types';
+import { createPokemonObject, NUM_OF_CARDS } from '../../helpers';
 
-const NUM_OF_CARDS = 20;
-const MAX_NUM_OF_POKEMONS = 1126;
-
-const CardList: React.VFC = memo(() => {
+const CardList = memo(() => {
     const [detailedPokemonList, setDetailedPokemonList] = useState<PokemonInfo[]>([]);
+    const [cardsToFetch, setCardsTofetch] = useState(NUM_OF_CARDS);
     const { allPokemons, setSelectedPokemon } = useContext(PokedexContext);
 
-    async function createPokemonObject(numOfCards: number) {
-        const currentFetch = allPokemons?.slice(
-            detailedPokemonList.length,
-            Math.min(detailedPokemonList.length + numOfCards, MAX_NUM_OF_POKEMONS)
-        );
-
-        let pokemons: PokemonInfo[] = [];
-
-        if (!currentFetch) return;
-        await Promise.all(
-            currentFetch?.map(async (pokemon) => {
-                const data = await getPokemonInfo(pokemon.name);
-                if (data !== null) {
-                    pokemons = [...pokemons, data];
-                }
-            })
-        );
-
-        pokemons.sort((a, b) => a.id - b.id);
-        setDetailedPokemonList((currentList) => [...currentList, ...pokemons]);
-    }
-
-    async function loadMore() {
-        await createPokemonObject(NUM_OF_CARDS);
+    function loadMore() {
+        setCardsTofetch((currentNumber) => currentNumber + NUM_OF_CARDS)
     }
 
     useEffect(() => {
-        void createPokemonObject(NUM_OF_CARDS);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [allPokemons]);
+        if (allPokemons === null || allPokemons.length === 0) return;
+        createPokemonObject(allPokemons, cardsToFetch).then((pokemons) => {
+            setDetailedPokemonList((currentList) => [...currentList, ...pokemons]);
+        }).catch((error) => {
+            alert(error)
+        });
+    }, [allPokemons, cardsToFetch]);
 
     return (
         <div className={classes.root}>
@@ -54,16 +34,14 @@ const CardList: React.VFC = memo(() => {
                             name={name}
                             image={sprites.front_default}
                             type={types[0].type.name}
-                            onClick={() => setSelectedPokemon?.(pokemon)}
+                            onClick={setSelectedPokemon !== null ? () => setSelectedPokemon(pokemon) : undefined}
                         />
                     );
                 })}
             </div>
             <button
                 className={classes.loadMoreBtn}
-                onClick={() => {
-                    void loadMore();
-                }}
+                onClick={loadMore}
             >
                 Load More
             </button>

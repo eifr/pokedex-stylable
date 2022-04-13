@@ -3,15 +3,23 @@ import { getPokemonInfo } from '../../api';
 import { PokedexContext } from '../pokedex/Pokedex';
 import { classes } from './search.st.css';
 import Select from 'react-select';
+import type { PokemonInfo } from '../../types';
 
 const Search: React.VFC = memo(() => {
     const { allPokemons, setSelectedPokemon } = useContext(PokedexContext);
 
-    const onPokemonClick = async (pokemonName: string) => {
-        const pokemonInfo = await getPokemonInfo(pokemonName);
-        if (pokemonInfo) {
-            setSelectedPokemon?.(pokemonInfo);
-        }
+    const onPokemonSelect = (pokemonName: string) => {
+        getPokemonInfo(pokemonName)
+            .then((pokemon) => {
+                return pokemon.json();
+            })
+            .then((pokemonInfo: PokemonInfo) => {
+                setSelectedPokemon?.(pokemonInfo);
+            })
+            .catch((e) => {
+                console.log(e);
+                alert("Couldn't load pokemon");
+            });
     };
 
     return (
@@ -19,7 +27,7 @@ const Search: React.VFC = memo(() => {
             <Select
                 onChange={(selectedOption) => {
                     if (selectedOption == null) return;
-                    void onPokemonClick(selectedOption.value);
+                    onPokemonSelect(selectedOption.value);
                 }}
                 options={allPokemons?.map(({ name }) => ({ value: name, label: name }))}
             />

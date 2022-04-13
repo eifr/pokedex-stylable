@@ -1,5 +1,5 @@
 import type { PokemonInfo, PokemonTypes } from '../../../../../types';
-import { pokemonTypeColors } from '../../../../../colors/pokemonTypeColors';
+import { POKEMON_TYPE_COLORS } from '../../../../../colors/pokemonTypeColors';
 import { st, classes, vars } from '../detailsViews.st.css';
 import { memo } from 'react';
 
@@ -7,9 +7,9 @@ interface TypeProps {
     type: PokemonTypes;
 }
 
-const Type: React.VFC<TypeProps> = memo(({ type }) => {
+const Type = memo<TypeProps>(({ type }) => {
     return (
-        <div className={classes.typeCapsule} style={{ [vars.typeColor]: pokemonTypeColors[type] }}>
+        <div className={classes.typeCapsule} style={{ [vars.typeColor]: POKEMON_TYPE_COLORS[type] }}>
             {type}
         </div>
     );
@@ -23,7 +23,7 @@ interface KeyValProps {
     className?: string;
 }
 
-const KeyVal: React.VFC<KeyValProps> = memo(({ keyName, value, className }) => {
+const KeyVal = memo<KeyValProps>(({ keyName, value, className }) => {
     return (
         <div className={st(classes.keyVal, className)}>
             <div>{keyName}</div>
@@ -38,7 +38,7 @@ interface PokemonOverviewProps {
     selectedPokemon: PokemonInfo;
 }
 
-const PokemonOverview: React.VFC<PokemonOverviewProps> = memo(({ selectedPokemon }) => {
+const PokemonOverview = memo<PokemonOverviewProps>(({ selectedPokemon }) => {
     const { id, name, sprites, weight, height, types } = selectedPokemon;
     return (
         <>

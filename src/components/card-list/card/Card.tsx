@@ -1,24 +1,24 @@
-import { classes, vars } from './card.st.css';
-import { pokemonTypeColors } from '../../../colors/pokemonTypeColors';
-import type { PokemonTypes } from '../../../types';
+import { st, classes, vars } from './card.st.css';
+import { POKEMON_TYPE_COLORS } from '../../../colors/pokemonTypeColors';
 import { memo } from 'react';
+import type { PokemonTypes } from '../../../types';
 
 interface CardProps {
     name: string;
     image: string;
     type: PokemonTypes;
-    onClick: () => void;
+    onClick?: () => void;
 }
 
-const Card: React.VFC<CardProps> = memo<CardProps>(({ image, name, type, onClick }) => {
+const Card = memo<CardProps>(({ image, name, type, onClick }) => {
     return (
         <div
-            className={classes.root}
-            style={{ [vars.typeColor]: pokemonTypeColors[type] }}
+            className={st(classes.root, {disabled: onClick == null})}
+            style={{ [vars.typeColor]: POKEMON_TYPE_COLORS[type] }}
             onClick={onClick}
         >
-            <img src={image} alt={name} />
-            <div>{name}</div>
+            <img className={classes.thumbnail} src={image} alt={name} />
+            <h4 className={classes.name}>{name}</h4>
         </div>
     );
 });

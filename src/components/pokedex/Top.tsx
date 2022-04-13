@@ -1,15 +1,15 @@
 import { st, classes, vars } from './pokedexContainer.st.css';
-import { pokemonTypeColors } from '../../colors/pokemonTypeColors';
+import { POKEMON_TYPE_COLORS } from '../../colors/pokemonTypeColors';
 
-const Top: React.VFC = () => {
+const Top = () => {
     return (
         <div className={classes.top}>
-            <div className={classes.circle} style={{ [vars.color]: pokemonTypeColors.grass }} />
-            <div className={classes.circle} style={{ [vars.color]: pokemonTypeColors.electric }} />
-            <div className={classes.circle} style={{ [vars.color]: pokemonTypeColors.fighting }} />
+            <div className={classes.circle} style={{ [vars.color]: POKEMON_TYPE_COLORS.grass }} />
+            <div className={classes.circle} style={{ [vars.color]: POKEMON_TYPE_COLORS.electric }} />
+            <div className={classes.circle} style={{ [vars.color]: POKEMON_TYPE_COLORS.fighting }} />
             <div
                 className={st(classes.circle, { large: true })}
-                style={{ [vars.color]: pokemonTypeColors.water }}
+                style={{ [vars.color]: POKEMON_TYPE_COLORS.water }}
             />
         </div>
     );

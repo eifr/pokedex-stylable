@@ -1,6 +1,6 @@
 import { TypeOfPokemon } from '../types';
 
-export const pokemonTypeColors = {
+export const POKEMON_TYPE_COLORS = {
     [TypeOfPokemon.Normal]: '#A8A77A',
     [TypeOfPokemon.Fire]: '#EE8130',
     [TypeOfPokemon.Water]: '#6390F0',
