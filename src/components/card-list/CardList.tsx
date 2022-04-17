@@ -1,18 +1,18 @@
-import { memo, useContext, useEffect, useState } from 'react';
+import { memo, useCallback, useContext, useEffect, useState } from 'react';
 import { classes } from './card-list.st.css';
 import { PokedexContext } from '../pokedex/Pokedex';
 import Card from './card/Card';
-import type { PokemonInfo } from '../../types';
 import { createPokemonObject, NUM_OF_CARDS } from '../../helpers';
+import type { PokemonInfo } from '../../types';
 
 const CardList = memo(() => {
     const [detailedPokemonList, setDetailedPokemonList] = useState<PokemonInfo[]>([]);
     const [cardsToFetch, setCardsTofetch] = useState(NUM_OF_CARDS);
     const { allPokemons, setSelectedPokemon } = useContext(PokedexContext);
 
-    function loadMore() {
+    const loadMoreHandler = useCallback(() => {
         setCardsTofetch((currentNumber) => currentNumber + NUM_OF_CARDS);
-    }
+    }, []);
 
     useEffect(() => {
         if (allPokemons === null || allPokemons.length === 0) {
@@ -48,7 +48,7 @@ const CardList = memo(() => {
                     );
                 })}
             </div>
-            <button className={classes.loadMoreBtn} onClick={loadMore}>
+            <button className={classes.loadMoreBtn} onClick={loadMoreHandler}>
                 Load More
             </button>
         </div>

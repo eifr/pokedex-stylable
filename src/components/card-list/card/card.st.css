@@ -1,6 +1,6 @@
 .root {
     -st-states: disabled;
-    background-color: #E54222;
+    --typeColor: #E54222;
     background-color: var(--typeColor);
     padding: 10px;
     cursor: pointer;

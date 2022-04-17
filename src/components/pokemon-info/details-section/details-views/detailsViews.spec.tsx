@@ -22,7 +22,7 @@ describe('Test details views', () => {
         container.remove();
     });
 
-    it('render pokemon info data view - name', () => {
+    it('checks pokemon name in the PokemonOverview component is equal to the selected pokemon', () => {
         act(() => {
             render(<PokemonOverview selectedPokemon={pokemon} />, container);
         });
@@ -30,7 +30,7 @@ describe('Test details views', () => {
         expect(pokemonDataView?.querySelector('.name')?.textContent).to.equal(pokemon.name);
     });
 
-    it('render pokemon info data view - types', () => {
+    it('checks pokemon types in the PokemonOverview component are equal to the selected pokemon types array', () => {
         act(() => {
             render(<PokemonOverview selectedPokemon={pokemon} />, container);
         });
@@ -40,7 +40,7 @@ describe('Test details views', () => {
         });
     });
 
-    it('render pokemon stats', () => {
+    it('checks pokemon stast height are equal to the selected pokemon stats object', () => {
         act(() => {
             render(<PokemonStats selectedPokemon={pokemon} />, container);
         });

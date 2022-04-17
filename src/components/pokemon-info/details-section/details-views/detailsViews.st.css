@@ -43,6 +43,7 @@
     border-radius: 10px;
     font-weight: 700;
     text-align: center;
+    --typeColor: white;
     color: var(--typeColor);
     border: 2px solid var(--typeColor);
 }

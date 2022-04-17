@@ -19,7 +19,7 @@ describe('Test card component', () => {
         container.remove();
     });
 
-    it('render card with pokemon name', () => {
+    it('Checks that the name on the card is equal to the pokemon name', () => {
         act(() => {
             render(
                 <Card
@@ -37,7 +37,7 @@ describe('Test card component', () => {
         expect(card?.textContent).to.equal('Pokemon');
     });
 
-    it('render card with pokemon type color', () => {
+    it('Checks that the color on the card is equal to the pokemon type color', () => {
         act(() => {
             render(
                 <Card

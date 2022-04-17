@@ -1,6 +1,6 @@
-import type React from 'react';
 import { st, classes } from './app.st.css';
 import Pokedex from './components/pokedex/Pokedex';
+import type React from 'react';
 
 export interface AppProps {
     className?: string;

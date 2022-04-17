@@ -18,7 +18,7 @@ describe('Test buttons section', () => {
         container.remove();
     });
 
-    it('render buttons section without selected pokemon', () => {
+    it('checks that the buttons section is disabled when no pokemon is selected', () => {
         act(() => {
             render(
                 <ButtonsSection
@@ -39,7 +39,7 @@ describe('Test buttons section', () => {
         });
     });
 
-    it('render buttons section with selected pokemon', () => {
+    it('checks that the buttons section is not disabled when pokemon is selected and next and prev functions are provided', () => {
         act(() => {
             render(
                 <ButtonsSection
@@ -60,34 +60,13 @@ describe('Test buttons section', () => {
         });
     });
 
-    it('render buttons section without buttons functions', () => {
+    it('checks that the buttons section is disabled when next and prev functions are not provided', () => {
         act(() => {
             render(<ButtonsSection isPokemonSelected={true} next={null} prev={null} />, container);
         });
         const buttons = container.querySelectorAll('button');
         buttons.forEach((btn) => {
             expect(btn.getAttribute('disabled')).not.to.be.null;
-        });
-    });
-
-    it('render buttons section with buttons functions', () => {
-        act(() => {
-            render(
-                <ButtonsSection
-                    isPokemonSelected={true}
-                    next={() => {
-                        return;
-                    }}
-                    prev={() => {
-                        return;
-                    }}
-                />,
-                container
-            );
-        });
-        const buttons = container.querySelectorAll('button');
-        buttons.forEach((btn) => {
-            expect(btn.getAttribute('disabled')).to.be.null;
         });
     });
 });
