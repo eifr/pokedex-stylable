@@ -36,11 +36,10 @@ export async function createPokemonObject(
 }
 
 export async function getAllPokemonsList() {
-    let pokemonList:{results:PokemonListItem[]};
+    let pokemonList: { results: PokemonListItem[] };
     try {
         const allPokemons = await getPokemonList(MAX_NUM_OF_POKEMONS);
-        pokemonList = await allPokemons.json() as {results:PokemonListItem[]};
-        
+        pokemonList = (await allPokemons.json()) as { results: PokemonListItem[] };
     } catch (error) {
         console.log(error);
         throw new Error("Couldn't load pokemons");

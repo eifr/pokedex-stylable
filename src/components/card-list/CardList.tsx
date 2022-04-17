@@ -11,16 +11,21 @@ const CardList = memo(() => {
     const { allPokemons, setSelectedPokemon } = useContext(PokedexContext);
 
     function loadMore() {
-        setCardsTofetch((currentNumber) => currentNumber + NUM_OF_CARDS)
+        setCardsTofetch((currentNumber) => currentNumber + NUM_OF_CARDS);
     }
 
     useEffect(() => {
-        if (allPokemons === null || allPokemons.length === 0) return;
-        createPokemonObject(allPokemons, cardsToFetch).then((pokemons) => {
-            setDetailedPokemonList((currentList) => [...currentList, ...pokemons]);
-        }).catch((error) => {
-            alert(error)
-        });
+        if (allPokemons === null || allPokemons.length === 0) {
+            return;
+        }
+
+        createPokemonObject(allPokemons, cardsToFetch)
+            .then((pokemons) => {
+                setDetailedPokemonList((currentList) => [...currentList, ...pokemons]);
+            })
+            .catch((error) => {
+                alert(error);
+            });
     }, [allPokemons, cardsToFetch]);
 
     return (
@@ -34,15 +39,16 @@ const CardList = memo(() => {
                             name={name}
                             image={sprites.front_default}
                             type={types[0].type.name}
-                            onClick={setSelectedPokemon !== null ? () => setSelectedPokemon(pokemon) : undefined}
+                            onClick={
+                                setSelectedPokemon !== null
+                                    ? () => setSelectedPokemon(pokemon)
+                                    : undefined
+                            }
                         />
                     );
                 })}
             </div>
-            <button
-                className={classes.loadMoreBtn}
-                onClick={loadMore}
-            >
+            <button className={classes.loadMoreBtn} onClick={loadMore}>
                 Load More
             </button>
         </div>

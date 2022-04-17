@@ -1,0 +1,25 @@
+
+.root {
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+    align-self: flex-end;
+}
+
+.circle {
+    -st-states: large;
+    border-radius: 50px;
+    background-color: white;
+    background-color: var(--color);
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+    margin-top: 10px;
+}
+
+.circle:large {
+    border: 5px solid #DFDFDF;
+    height: 55px;
+    width: 55px;
+    margin-top: 0px;
+}

@@ -1,4 +1,10 @@
-.root {}
+.root {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+
+}
 
 
 .pokemonImage {
@@ -8,8 +14,7 @@
 .pokemonData {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    width: 140px;
+    justify-content: space-evenly;
 }
 
 .keyVal {
@@ -24,20 +29,20 @@
 }
 
 .pokemonTypes {
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 50%;
+    justify-content: space-evenly;
 }
 
 .typeCapsule {
     background-color: black;
-    height: 24px;
     width: 100px;
+    padding: 2px 0px;
     border-radius: 10px;
     font-weight: 700;
     text-align: center;
-    margin: 5px;
     color: var(--typeColor);
     border: 2px solid var(--typeColor);
 }
@@ -47,6 +52,7 @@
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
+    height: 100%;
 }
 
 .stats {
@@ -59,13 +65,15 @@
 }
 
 .stats .stat {
-    width: 70px;
+    display: flex;
+    flex-basis: 70px;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .stats .text {
-    margin-top: 10px;
     height: 35px;
-    font-weight: 700a;
+    font-weight: 700;
 }
 
 .stats .poll {

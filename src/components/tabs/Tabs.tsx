@@ -5,7 +5,7 @@ import { classes } from './tabs.st.css';
 
 const Tabs: React.VFC = memo(() => {
     const pokedexTabs: { component: JSX.Element; label: string }[] = [
-        { component: <CardList/>, label: 'Browse' },
+        { component: <CardList />, label: 'Browse' },
         { component: <Search />, label: 'Search' },
     ];
 
@@ -26,9 +26,9 @@ const Tabs: React.VFC = memo(() => {
     });
 
     return (
-        <div>
+        <div className={classes.root}>
             <div className={classes.buttonsWrapper}>{labels}</div>
-            <div>{componentToDisplay}</div>
+            {componentToDisplay}
         </div>
     );
 });

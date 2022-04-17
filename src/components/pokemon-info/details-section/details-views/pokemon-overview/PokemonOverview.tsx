@@ -1,7 +1,7 @@
-import type { PokemonInfo, PokemonTypes } from '../../../../../types';
 import { POKEMON_TYPE_COLORS } from '../../../../../colors/pokemonTypeColors';
 import { st, classes, vars } from '../detailsViews.st.css';
 import { memo } from 'react';
+import type { PokemonInfo, PokemonTypes } from '../../../../../types';
 
 interface TypeProps {
     type: PokemonTypes;
@@ -9,7 +9,10 @@ interface TypeProps {
 
 const Type = memo<TypeProps>(({ type }) => {
     return (
-        <div className={classes.typeCapsule} style={{ [vars.typeColor]: POKEMON_TYPE_COLORS[type] }}>
+        <div
+            className={classes.typeCapsule}
+            style={{ [vars.typeColor]: POKEMON_TYPE_COLORS[type] }}
+        >
             {type}
         </div>
     );
@@ -41,7 +44,7 @@ interface PokemonOverviewProps {
 const PokemonOverview = memo<PokemonOverviewProps>(({ selectedPokemon }) => {
     const { id, name, sprites, weight, height, types } = selectedPokemon;
     return (
-        <>
+        <div className={classes.root}>
             <img
                 className={classes.pokemonImage}
                 src={sprites?.other.dream_world.front_default ?? sprites?.front_default}
@@ -57,7 +60,7 @@ const PokemonOverview = memo<PokemonOverviewProps>(({ selectedPokemon }) => {
                     ))}
                 </div>
             </div>
-        </>
+        </div>
     );
 });
 

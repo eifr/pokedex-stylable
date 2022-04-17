@@ -16,8 +16,7 @@ const Search: React.VFC = memo(() => {
             .then((pokemonInfo: PokemonInfo) => {
                 setSelectedPokemon?.(pokemonInfo);
             })
-            .catch((e) => {
-                console.log(e);
+            .catch(() => {
                 alert("Couldn't load pokemon");
             });
     };

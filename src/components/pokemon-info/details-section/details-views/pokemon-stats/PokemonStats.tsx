@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { POKEMON_TYPE_COLORS } from '../../../../../colors/pokemonTypeColors';
-import type { PokemonInfo } from '../../../../../types';
 import { classes, vars } from '../detailsViews.st.css';
+import type { PokemonInfo } from '../../../../../types';
 
 const PokemonStats = memo(({ selectedPokemon }: { selectedPokemon: PokemonInfo }) => {
     const { name, stats, types } = selectedPokemon;

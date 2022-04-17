@@ -13,7 +13,7 @@ interface CardProps {
 const Card = memo<CardProps>(({ image, name, type, onClick }) => {
     return (
         <div
-            className={st(classes.root, {disabled: onClick == null})}
+            className={st(classes.root, { disabled: !onClick })}
             style={{ [vars.typeColor]: POKEMON_TYPE_COLORS[type] }}
             onClick={onClick}
         >

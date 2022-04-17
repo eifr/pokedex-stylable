@@ -2,13 +2,12 @@ import { classes } from './pokedexContainer.st.css';
 import PokemonInfo from '../pokemon-info/Info';
 import Tabs from '../tabs/Tabs';
 import { createContext, memo, useEffect, useState } from 'react';
+import { getAllPokemonsList } from '../../helpers';
 import type {
     PokedexAppContext,
     PokemonInfo as PokemonInfoType,
     PokemonListItem,
 } from '../../types';
-import Top from './Top';
-import { getAllPokemonsList } from '../../helpers';
 
 export const PokedexContext = createContext<PokedexAppContext>({
     allPokemons: null,
@@ -43,7 +42,6 @@ const Pokedex = memo(() => {
                     <Tabs />
                 </div>
                 <div className={classes.container}>
-                    <Top />
                     <PokemonInfo />
                 </div>
             </PokedexContext.Provider>

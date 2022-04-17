@@ -1,6 +1,5 @@
 .root {
-    margin-top: 20px;
-    height: 60vh;
     overflow: auto;
-    width: 400px;
+    width: inherit;
+    height: inherit;
 }

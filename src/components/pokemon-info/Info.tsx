@@ -2,10 +2,11 @@ import { memo, useContext, useEffect, useState } from 'react';
 import { PokedexContext } from '../pokedex/Pokedex';
 import { ButtonsSection } from './buttons-section/ButtonsSection';
 import DetailsSection from './details-section/DetailsWrapper';
+import TopSection from './TopSection/Top';
 import { classes } from './info.st.css';
 import PokemonOverview from './details-section/details-views/pokemon-overview/PokemonOverview';
-import type { PokemonInfo } from '../../types';
 import PokemonStats from './details-section/details-views/pokemon-stats/PokemonStats';
+import type { PokemonInfo } from '../../types';
 
 enum ViewsType {
     PokemonOverview = 1,
@@ -49,6 +50,7 @@ const Info: React.VFC = memo(() => {
 
     return (
         <div className={classes.root}>
+            <TopSection />
             <DetailsSection
                 selectedPokemon={selectedPokemon}
                 viewToDisplay={infoViews[currentView]}

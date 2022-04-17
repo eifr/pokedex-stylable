@@ -1,13 +1,11 @@
 .root {
     padding: 10px;
-    height: 260px;
     display: flex;
-    align-items: center;
+    gap: 5%;
 }
 
 .arrowBtn {
     width: 100px;
-    height: 50px;
+    padding: 5px 20px;
     font-size: 30px;
-    margin: 10px;
 }
