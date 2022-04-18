@@ -2,31 +2,35 @@ import { memo, useCallback, useContext, useEffect, useState } from 'react';
 import { classes } from './card-list.st.css';
 import { PokedexContext } from '../pokedex/Pokedex';
 import Card from './card/Card';
-import { createPokemonObject, NUM_OF_CARDS } from '../../helpers';
+import { fetchedDetailedPokemons } from '../../helpers';
 import type { PokemonInfo } from '../../types';
+
+export const NUM_OF_CARDS = 20;
 
 const CardList = memo(() => {
     const [detailedPokemonList, setDetailedPokemonList] = useState<PokemonInfo[]>([]);
-    const [cardsToFetch, setCardsTofetch] = useState(NUM_OF_CARDS);
     const { allPokemons, setSelectedPokemon } = useContext(PokedexContext);
 
     const loadMoreHandler = useCallback(() => {
-        setCardsTofetch((currentNumber) => currentNumber + NUM_OF_CARDS);
-    }, []);
-
-    useEffect(() => {
         if (allPokemons === null || allPokemons.length === 0) {
             return;
         }
-
-        createPokemonObject(allPokemons, cardsToFetch)
+        fetchedDetailedPokemons(
+            allPokemons.slice(detailedPokemonList.length, detailedPokemonList.length + NUM_OF_CARDS)
+        )
             .then((pokemons) => {
                 setDetailedPokemonList((currentList) => [...currentList, ...pokemons]);
             })
             .catch((error) => {
+                console.error(error);
                 alert(error);
             });
-    }, [allPokemons, cardsToFetch]);
+    }, [allPokemons, detailedPokemonList]);
+
+    useEffect(() => {
+        loadMoreHandler();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [allPokemons]);
 
     return (
         <div className={classes.root}>

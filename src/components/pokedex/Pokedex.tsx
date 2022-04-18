@@ -9,6 +9,8 @@ import type {
     PokemonListItem,
 } from '../../types';
 
+export const MAX_NUM_OF_POKEMONS = 1126;
+
 export const PokedexContext = createContext<PokedexAppContext>({
     allPokemons: null,
     selectedPokemon: null,
@@ -20,7 +22,7 @@ const Pokedex = memo(() => {
     const [selectedPokemon, setSelectedPokemon] = useState<PokemonInfoType | null>(null);
 
     useEffect(() => {
-        getAllPokemonsList()
+        getAllPokemonsList(MAX_NUM_OF_POKEMONS)
             .then((pokemonsList) => {
                 setAllPokemons(pokemonsList);
             })
